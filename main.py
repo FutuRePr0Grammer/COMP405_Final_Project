@@ -1,5 +1,6 @@
 import sqlite3
 import url_functions
+from user_interface import run_main_interface
 import requests
 from bs4 import BeautifulSoup
 
@@ -146,9 +147,7 @@ def create_db_table_gaming_laptops():
 
 def main():
     '''Currently creates all tables in database with no data inside. **MUST CHANGE THIS DOCSTRING AS FUNCTION CHANGES**'''
-    create_all_tables()
-    print(url_functions.create_webcam_link(-4))
-    print(url_functions.create_gaming_laptop_link(0))
+    run_main_interface()
 
 if __name__ == '__main__':
     main()

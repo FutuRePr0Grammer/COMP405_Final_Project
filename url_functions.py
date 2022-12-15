@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
+'''Module containing functions related to url creation'''
+
 base_link = 'https://www.amazon.com'
 
 def create_headphones_link(page_num):
