@@ -1,13 +1,14 @@
 import sqlite3
-
+import url_functions
 import requests
-# from b4 import BeautifulSoup
+from bs4 import BeautifulSoup
 
 HEADER_FOR_GET_REQUEST = (
     {'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 "
                    "Safari/537.36",
      'Accept-Language': 'en-US, en;q=0.5'}
 )
+
 
 def create_all_tables():
     '''Creates all six tables for database'''
@@ -146,6 +147,8 @@ def create_db_table_gaming_laptops():
 def main():
     '''Currently creates all tables in database with no data inside. **MUST CHANGE THIS DOCSTRING AS FUNCTION CHANGES**'''
     create_all_tables()
+    print(url_functions.create_webcam_link(-4))
+    print(url_functions.create_gaming_laptop_link(0))
 
 if __name__ == '__main__':
     main()
