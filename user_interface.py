@@ -1,7 +1,7 @@
 '''Module containing functions related to the user interface'''
 
 def run_main_interface(user_wants_to_run):
-    '''Cycles through required input prompts and saves answers'''
+    '''Cycles through required input prompts and saves user's answers'''
     while user_wants_to_run:
         #Print product choices until viable input is entered, then save input
         desired_product = product_number_prompt_loop(0)
@@ -30,6 +30,7 @@ def exit_prompt_loop(exit_input_from_user):
     while not is_viable_exit_input(exit_input_from_user):
         exit_input_from_user = input(print_final_message())
     return exit_input_from_user
+
 def price_prompt_loop(desired_product_price):
     '''Loops desired price message until viable input entered, then returns input'''
     while not is_viable_price(desired_product_price):
@@ -41,21 +42,25 @@ def number_reviews_prompt_loop(desired_review_number):
     while not is_viable_review_number(desired_review_number):
         desired_review_number = input(print_target_number_reviews_prompt())
     return desired_review_number
+
 def equality_operator_prompt_loop(desired_equality_operation_star):
     '''Loops equality operator message until viable input entered, then returns input'''
     while not is_viable_equality_operator(desired_equality_operation_star):
         desired_equality_operation_star = input(print_equality_operator_prompt())
     return desired_equality_operation_star
+
 def star_review_prompt_loop(desired_star_review):
     '''Loops star review message until viable input entered, then returns input'''
     while not is_viable_star_num(desired_star_review):
         desired_star_review = input(print_star_review_prompt())
     return desired_star_review
+
 def product_number_prompt_loop(desired_product):
     '''Loops product listing prompt until viable input is entered, then return input'''
     while not is_viable_product_num(desired_product):
         desired_product = input(print_product_choice_prompt())
     return desired_product
+
 def is_viable_exit_input(exit_input):
     '''Checks if user typed 'yes' or 'no' '''
     if exit_input == 'yes':
