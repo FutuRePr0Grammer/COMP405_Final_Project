@@ -147,7 +147,7 @@ def create_db_table_gaming_laptops():
 
 def main():
     '''Currently creates all tables in database with no data inside. **MUST CHANGE THIS DOCSTRING AS FUNCTION CHANGES**'''
-    run_main_interface()
+    run_main_interface(True)
 
 if __name__ == '__main__':
     main()

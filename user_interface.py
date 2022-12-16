@@ -1,47 +1,61 @@
-'''Module containing functions related to user interface'''
+'''Module containing functions related to the user interface'''
 
-def run_main_interface():
+def run_main_interface(user_wants_to_run):
     '''Cycles through required input prompts and saves answers'''
-    user_wants_to_run = True
     while user_wants_to_run:
-        #Reset all values at begining of input cycle
-        desired_product = 0
-        desired_star_review = 0
-        desired_review_number = -1
-        desired_product_price = -1
-        desired_equality_operation_star = ''
-        desired_equality_operation_review_count = ''
-        desired_equality_operation_price = ''
-        exit_input_from_user = ''
-        #Print product listing prompt until viable input is entered
-        while not is_viable_product_num(desired_product):
-            desired_product = input(print_product_choice_prompt())
+        #Print product choices until viable input is entered, then save input
+        desired_product = product_number_prompt_loop(0)
         #Print star review prompt until viable input is entered
-        while not is_viable_star_num(desired_star_review):
-            desired_star_review = input(print_star_review_prompt())
+        desired_star_review = star_review_prompt_loop(-1)
         #Print equality operator prompt until viable input is entered
-        while not is_viable_equality_operator(desired_equality_operation_star):
-            desired_equality_operation_star = input(print_equality_operator_prompt())
+        desired_equality_operation_star = equality_operator_prompt_loop('')
         #Print review number prompt until viable input is entered
-        while not is_viable_review_number(desired_review_number):
-            desired_review_number = input(print_target_number_reviews_prompt())
+        desired_review_number = number_reviews_prompt_loop(-1)
         #Print equality operator prompt until viable input is entered
-        while not is_viable_equality_operator(desired_equality_operation_review_count):
-            desired_equality_operation_review_count = input(print_equality_operator_prompt())
+        desired_equality_operation_review_count = equality_operator_prompt_loop('')
         #Print desired price prompt until viable input is entered
-        while not is_viable_price(desired_product_price):
-            desired_product_price = input(print_target_price_prompt())
-        while not is_viable_equality_operator(desired_equality_operation_price):
-            desired_equality_operation_price = input(print_equality_operator_prompt())
-        while not is_viable_exit_input(exit_input_from_user):
-            exit_input_from_user = input(print_final_message())
+        desired_product_price = price_prompt_loop(-1)
+        #Print equality operator prompt until viable input is entered
+        desired_equality_operation_price = equality_operator_prompt_loop('')
+        #Print exit prompt until viable input entered
+        exit_input_from_user = exit_prompt_loop('')
         if exit_input_from_user == 'yes':
             continue
         else:
             print('Exiting Program')
             user_wants_to_run = False
 
+def exit_prompt_loop(exit_input_from_user):
+    '''Loops optional exit message until viable input entered, then returns input'''
+    while not is_viable_exit_input(exit_input_from_user):
+        exit_input_from_user = input(print_final_message())
+    return exit_input_from_user
+def price_prompt_loop(desired_product_price):
+    '''Loops desired price message until viable input entered, then returns input'''
+    while not is_viable_price(desired_product_price):
+        desired_product_price = input(print_target_price_prompt())
+    return desired_product_price
 
+def number_reviews_prompt_loop(desired_review_number):
+    '''Loops number of reviews message until viable input entered, then returns input'''
+    while not is_viable_review_number(desired_review_number):
+        desired_review_number = input(print_target_number_reviews_prompt())
+    return desired_review_number
+def equality_operator_prompt_loop(desired_equality_operation_star):
+    '''Loops equality operator message until viable input entered, then returns input'''
+    while not is_viable_equality_operator(desired_equality_operation_star):
+        desired_equality_operation_star = input(print_equality_operator_prompt())
+    return desired_equality_operation_star
+def star_review_prompt_loop(desired_star_review):
+    '''Loops star review message until viable input entered, then returns input'''
+    while not is_viable_star_num(desired_star_review):
+        desired_star_review = input(print_star_review_prompt())
+    return desired_star_review
+def product_number_prompt_loop(desired_product):
+    '''Loops product listing prompt until viable input is entered, then return input'''
+    while not is_viable_product_num(desired_product):
+        desired_product = input(print_product_choice_prompt())
+    return desired_product
 def is_viable_exit_input(exit_input):
     '''Checks if user typed 'yes' or 'no' '''
     if exit_input == 'yes':
@@ -54,6 +68,7 @@ def is_viable_exit_input(exit_input):
 
 def is_viable_price(potential_num):
     '''Checks if user input is positive number'''
+    #NEED TO CHECK FOR DECIMALS OVER 2 PLACES OR ROUND TO TWO PLACES
     if not is_number(potential_num):
         print('Please enter positive number')
         return False
@@ -113,7 +128,7 @@ def is_viable_star_num(potential_num):
         print('Please input valid star review rating')
         return False
     else:
-        if float(potential_num) == 0:
+        if float(potential_num) == -1:
             print('Please input valid star review rating')
             return False
         elif 0.0 <= float(potential_num) <= 5.0:
