@@ -1,4 +1,5 @@
-Genre Id's: Fantasy = fant, Horror = horr, Dystopian = dyst, Gothic = goth, Sceince Fiction = Scifi, Mythology = myth, Adventure Fiction = Advfi, Mystery = myst
+Genre Id's: Fantasy = fanISBN, Horror = horrISBN, Dystopian = dystISBN, Gothic = gothISBN, 
+Sceince Fiction = ScifiISBN, Mythology = mythISBN, Adventure Fiction = AdvfiISBN, Mystery = mystISBN
 
 Example Queries:
 

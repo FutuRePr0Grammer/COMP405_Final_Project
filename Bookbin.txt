@@ -1,0 +1,20 @@
+CREATE TABLE Books(
+	isbn TEXT PRIMARY KEY,
+	b_name TEXT,
+	ch_ct INTEGER,
+	release_date TEXT,
+	author_name TEXT
+);
+
+CREATE TABLE Genre(
+	g_id TEXT PRIMARY KEY,
+	g_name TEXT
+);
+
+CREATE TABLE BelongsTo(
+	g_id TEXT,
+	isbn TEXT,
+	PRIMARY KEY(g_id, isbn),
+	FOREIGN KEY (g_id) REFERENCES Genre (g_id),
+	FOREIGN KEY (isbn) REFERENCES Books (isbn)
+);
