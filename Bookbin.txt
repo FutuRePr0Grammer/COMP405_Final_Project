@@ -18,3 +18,14 @@ CREATE TABLE BelongsTo(
 	FOREIGN KEY (g_id) REFERENCES Genre (g_id),
 	FOREIGN KEY (isbn) REFERENCES Books (isbn)
 );
+
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name) 
+	VALUES ('9780553808049','A Game of Thrones Illustrated Edition', 73, '10/18/2016','George RR Martin');
+INSERT INTO Genre (g_id, g_name) VALUES ('fan9780553808049', 'Fantasy');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('fan9780553808049', '9780553808049');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9781501142970','It', 23, '09/15/1986','Stephen King');
+INSERT INTO Genre (g_id, g_name) VALUES ('horr9781501142970', 'Horror');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('horr9781501142970', '9781501142970');
