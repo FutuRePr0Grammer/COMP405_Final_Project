@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f08270f-c086-40d2-bc94-b50356301458" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/DemoJavaGUI/DatabaseTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/DemoJavaGUI/DatabaseTableModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoJavaGUI/DatabaseTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/DemoJavaGUI/DatabaseTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoJavaGUI/Row.class" beforeDir="false" afterPath="$PROJECT_DIR$/DemoJavaGUI/Row.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoJavaGUI/Row.java" beforeDir="false" afterPath="$PROJECT_DIR$/DemoJavaGUI/Row.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoJavaGUI/SQLiteGUIDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/DemoJavaGUI/SQLiteGUIDemo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoJavaGUI/SQLiteGUIDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/DemoJavaGUI/SQLiteGUIDemo.java" afterDir="false" />
     </list>

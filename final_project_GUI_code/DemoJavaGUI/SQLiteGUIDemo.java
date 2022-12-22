@@ -64,6 +64,7 @@ public class SQLiteGUIDemo implements KeyListener, TableModelListener {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//frame.getContentPane().setBackground(Color.pink);
+		//frame.setVisible(true);
 
 		// Place the search box at the top
 		textField = new JTextField();
@@ -73,6 +74,9 @@ public class SQLiteGUIDemo implements KeyListener, TableModelListener {
 
 		// Place the table in a scroll pane in the center
 		table = new JTable(tableModel);
+		table.setBackground(Color.PINK);
+		table.setForeground(Color.BLUE);
+		table.setGridColor(Color.ORANGE);
 		scrollPane = new JScrollPane(table);
 		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 	}
