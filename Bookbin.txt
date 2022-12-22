@@ -1,3 +1,4 @@
+
 CREATE TABLE Books(
 	isbn TEXT PRIMARY KEY,
 	b_name TEXT,
@@ -21,6 +22,11 @@ CREATE TABLE BelongsTo(
 
 
 INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name) 
+	VALUES ('9780590353427','Harry Potter and the Sorcerer's Stone', 17, '10/01/1999','JK Rowling');
+INSERT INTO Genre (g_id, g_name) VALUES ('fan9780590353427', 'Fantasy');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('fan9780590353427', '9780590353427');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name) 
 	VALUES ('9780553808049','A Game of Thrones Illustrated Edition', 73, '10/18/2016','George RR Martin');
 INSERT INTO Genre (g_id, g_name) VALUES ('fan9780553808049', 'Fantasy');
 INSERT INTO BelongsTo (g_id, isbn) VALUES ('fan9780553808049', '9780553808049');
@@ -29,6 +35,41 @@ INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
    	VALUES ('9781501142970','It', 23, '09/15/1986','Stephen King');
 INSERT INTO Genre (g_id, g_name) VALUES ('horr9781501142970', 'Horror');
 INSERT INTO BelongsTo (g_id, isbn) VALUES ('horr9781501142970', '9781501142970');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780062315007','The Alchemist', 2, '1988','Paulo Coelho');
+INSERT INTO Genre (g_id, g_name) VALUES ('fan9780062315007', 'Fantasy');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('fan9780062315007', '9780062315007');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780375703768','House of Leaves', 23, '03/07/2000','Mark Z. Danielewski');
+INSERT INTO Genre (g_id, g_name) VALUES ('horr9780375703768', 'Horror');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('horr9780375703768', '9780375703768');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780399501487','Lord of the Flies', 12, '09/17/1954','William Golding');
+INSERT INTO Genre (g_id, g_name) VALUES ('dyst9780399501487', 'Dystopian');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('dyst9780399501487', '9780399501487');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9781451673319','Fahrenheit 451', 17, '10/19/1953','Ray Bradbury');
+INSERT INTO Genre (g_id, g_name) VALUES ('dyst9781451673319', 'Dystopian');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('dyst9781451673319', '9781451673319');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780345806789','The Shining', 58, '01/28/1977','Stephen King');
+INSERT INTO Genre (g_id, g_name) VALUES ('horr9780345806789', 'Horror');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('horr9780345806789', '9780345806789');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780143039983','The Haunting of Hill House', 9, '1959','Shirley Jackson');
+INSERT INTO Genre (g_id, g_name) VALUES ('horr9780143039983', 'Horror');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('horr9780143039983', '9780143039983');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780143039976','We Have Always Lived in the Castle', 10, '09/21/1962','Shirley Jackson');
+INSERT INTO Genre (g_id, g_name) VALUES ('goth9780143039976', 'Gothic');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('goth9780143039976', '9780143039976');
 
 INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
    	VALUES ('9780439023481','The Hunger Games', 27, '09/14/2008','Suzanne Collins');
@@ -71,7 +112,7 @@ INSERT INTO Genre (g_id, g_name) VALUES ('SciFi9780156030083', 'Science Fiction'
 INSERT INTO BelongsTo (g_id, isbn) VALUES ('SciFi9780156030083', '9780156030083');
 
 INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
-   	VALUES ('1599866749','A Study In Scarlet', 14, 'XX/XX/1887','Arthur Conan Doyle');
+   	VALUES ('1599866749','A Study In Scarlet', 14, '1887','Arthur Conan Doyle');
 INSERT INTO Genre (g_id, g_name) VALUES ('myst1599866749', 'Science Fiction');
 INSERT INTO BelongsTo (g_id, isbn) VALUES ('myst1599866749', '1599866749');
 

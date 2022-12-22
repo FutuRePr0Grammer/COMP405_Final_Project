@@ -3,6 +3,7 @@ import java.awt.event.KeyListener;
 import java.sql.Connection;
 
 import javax.swing.JFrame;
+import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -62,15 +63,20 @@ public class SQLiteGUIDemo implements KeyListener, TableModelListener {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.getContentPane().setBackground(Color.pink);
+		//frame.setVisible(true);
 
 		// Place the search box at the top
 		textField = new JTextField();
-		textField.setToolTipText("Search by book g_id");
+		textField.setToolTipText("Search by book name");
 		frame.getContentPane().add(textField, BorderLayout.NORTH);
 		textField.setColumns(10);
 
 		// Place the table in a scroll pane in the center
 		table = new JTable(tableModel);
+		table.setBackground(Color.PINK);
+		table.setForeground(Color.BLUE);
+		table.setGridColor(Color.ORANGE);
 		scrollPane = new JScrollPane(table);
 		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 	}
@@ -110,19 +116,34 @@ public class SQLiteGUIDemo implements KeyListener, TableModelListener {
 	public void tableChanged(TableModelEvent e) {
 		String param = textField.getText();
 		// generate parameterized sql
-		/*sql = "SELECT Books.b_name, g_id.g_id" +
+		/*sql = "SELECT Books.b_name, g_name.g_name" +
 				"FROM Books" +
 				"JOIN BelongsTo USING (isbn)" +
-				"JOIN g_id USING (g_id)" +
+				"JOIN g_name USING (g_name)" +
 				"WHERE Books.b_name LIKE ?";*/
 		/*if ( param.equalsIgnoreCase("") ) {*/
-		sql = "SELECT * FROM Books JOIN BelongsTo USING (isbn) JOIN Genre USING (g_id) WHERE Books.b_name LIKE ?";
+
+		sql = "SELECT b_name, g_name, " +
+				"author_name, Books.isbn AS isbn, " +
+				"release_date," +
+				"ch_ct " +
+				"FROM Books " +
+				"JOIN BelongsTo ON Books.isbn = BelongsTo.isbn " +
+				"JOIN Genre USING (g_id) " +
+				"WHERE b_name LIKE ? AND Genre.g_id = BelongsTo.g_id";
+
+		/*sql = "SELECT * " +
+				"FROM Books " +
+				"JOIN BelongsTo USING (isbn) " +
+				"JOIN Genre USING (g_id) " +
+				"WHERE Books.b_name LIKE ? AND Genre.g_id = BelongsTo.g_id";*/
+
 		/*} else{
-			sql = "SELECT Books.b_name, Genre.g_id" + 
+			sql = "SELECT Books.b_name, Genre.g_name" + 
 				"FROM Genre" +
-				"JOIN BelongsTo USING (g_id)" + 
+				"JOIN BelongsTo USING (g_name)" + 
 				"JOIN Books USING (isbn)" + 
-				"WHERE Genre.g_id LIKE ?";
+				"WHERE Genre.g_name LIKE ?";
 		}*/
 		// System.out.println("\nSQL: " + sql + "\n");
 
@@ -140,7 +161,9 @@ public class SQLiteGUIDemo implements KeyListener, TableModelListener {
 			// Transfer data from database to GUI
 			ArrayList<Row> table = new ArrayList<Row>();
 			while ( res.next() ) {
-				table.add(new Row(res.getString("b_name"),res.getString("g_id")));
+				table.add(new Row(res.getString("b_name"),res.getString("g_name"),
+						res.getString("author_name"), res.getString("isbn"),
+						res.getString("release_date"), res.getInt("ch_ct")));
 			}
 			tableModel.setTable(table);
 
