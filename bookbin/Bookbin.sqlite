@@ -1,0 +1,167 @@
+
+CREATE TABLE Books(
+	isbn TEXT PRIMARY KEY,
+	b_name TEXT,
+	ch_ct INTEGER,
+	release_date TEXT,
+	author_name TEXT
+);
+
+CREATE TABLE Genre(
+	g_id TEXT PRIMARY KEY,
+	g_name TEXT
+);
+
+CREATE TABLE BelongsTo(
+	g_id TEXT,
+	isbn TEXT,
+	PRIMARY KEY(g_id, isbn),
+	FOREIGN KEY (g_id) REFERENCES Genre (g_id),
+	FOREIGN KEY (isbn) REFERENCES Books (isbn)
+);
+
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+	VALUES ('9780590353427','Harry Potter and the Sorcerer's Stone', 17, '10/01/1999','JK Rowling');
+INSERT INTO Genre (g_id, g_name) VALUES ('fan9780590353427', 'Fantasy');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('fan9780590353427', '9780590353427');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+	VALUES ('9780553808049','A Game of Thrones Illustrated Edition', 73, '10/18/2016','George RR Martin');
+INSERT INTO Genre (g_id, g_name) VALUES ('fan9780553808049', 'Fantasy');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('fan9780553808049', '9780553808049');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9781501142970','It', 23, '09/15/1986','Stephen King');
+INSERT INTO Genre (g_id, g_name) VALUES ('horr9781501142970', 'Horror');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('horr9781501142970', '9781501142970');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780062315007','The Alchemist', 2, '1988','Paulo Coelho');
+INSERT INTO Genre (g_id, g_name) VALUES ('fan9780062315007', 'Fantasy');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('fan9780062315007', '9780062315007');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780375703768','House of Leaves', 23, '03/07/2000','Mark Z. Danielewski');
+INSERT INTO Genre (g_id, g_name) VALUES ('horr9780375703768', 'Horror');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('horr9780375703768', '9780375703768');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780399501487','Lord of the Flies', 12, '09/17/1954','William Golding');
+INSERT INTO Genre (g_id, g_name) VALUES ('dyst9780399501487', 'Dystopian');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('dyst9780399501487', '9780399501487');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9781451673319','Fahrenheit 451', 17, '10/19/1953','Ray Bradbury');
+INSERT INTO Genre (g_id, g_name) VALUES ('dyst9781451673319', 'Dystopian');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('dyst9781451673319', '9781451673319');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780345806789','The Shining', 58, '01/28/1977','Stephen King');
+INSERT INTO Genre (g_id, g_name) VALUES ('horr9780345806789', 'Horror');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('horr9780345806789', '9780345806789');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780143039983','The Haunting of Hill House', 9, '1959','Shirley Jackson');
+INSERT INTO Genre (g_id, g_name) VALUES ('horr9780143039983', 'Horror');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('horr9780143039983', '9780143039983');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780143039976','We Have Always Lived in the Castle', 10, '09/21/1962','Shirley Jackson');
+INSERT INTO Genre (g_id, g_name) VALUES ('goth9780143039976', 'Gothic');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('goth9780143039976', '9780143039976');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780439023481','The Hunger Games', 27, '09/14/2008','Suzanne Collins');
+INSERT INTO Genre (g_id, g_name) VALUES ('dyst9780439023481', 'Dystopian');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('dyst9780439023481', '9780439023481');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780439023498','Catching Fire', 27, '09/01/2009','Suzanne Collins');
+INSERT INTO Genre (g_id, g_name) VALUES ('dyst9780439023498', 'Dystopian');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('dyst9780439023498', '9780439023498');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780439023511','Mockingjay', 27, '08/24/2010','Suzanne Collins');
+INSERT INTO Genre (g_id, g_name) VALUES ('dyst9780439023511', 'Dystopian');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('dyst9780439023511', '9780439023511');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780385737944','Maze Runner', 62, '10/06/2009','James Dashner');
+INSERT INTO Genre (g_id, g_name) VALUES ('SciFi9780385737944', 'Science Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('SciFi9780385737944', '9780385737944');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780553538229','Scorch Trials', 65, '09/18/2010','James Dashner');
+INSERT INTO Genre (g_id, g_name) VALUES ('SciFi9780553538229', 'Science Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('SciFi9780553538229', '9780553538229');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9781921989766','The Death Cure', 73, '10/11/2011','James Dashner');
+INSERT INTO Genre (g_id, g_name) VALUES ('SciFi9781921989766', 'Science Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('SciFi9781921989766', '9781921989766');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780786838653','Percy Jackson and the Olympians: The Lightning Thief', 52, '06/28/2005','Rick Riordan');
+INSERT INTO Genre (g_id, g_name) VALUES ('myth9780786838653', 'Mythology');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('myth9780786838653', '9780786838653');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780156030083','Flowers For Algernon', 73, '04/XX/1989','Daniel Keyes');
+INSERT INTO Genre (g_id, g_name) VALUES ('SciFi9780156030083', 'Science Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('SciFi9780156030083', '9780156030083');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('1599866749','A Study In Scarlet', 14, '1887','Arthur Conan Doyle');
+INSERT INTO Genre (g_id, g_name) VALUES ('myst1599866749', 'Science Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('myst1599866749', '1599866749');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780545060397','Maze of Bones', 20, '09/09/2008','Rick Riordan');
+INSERT INTO Genre (g_id, g_name) VALUES ('AdvFi9780545060397', 'Adventure Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('AdvFi9780545060397', '9780545060397');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780545060427','One False Note', 21, '12/02/2008','Gordon Korman');
+INSERT INTO Genre (g_id, g_name) VALUES ('AdvFi9780545060427', 'Adventure Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('AdvFi9780545060427', '9780545060427');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780545090598','The Sword Thief', 18, '03/03/2009','Peter Lerangis');
+INSERT INTO Genre (g_id, g_name) VALUES ('AdvFi9780545090598', 'Adventure Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('AdvFi9780545090598', '9780545090598');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780545138809','Beyond The Grave', 24, '06/02/2009','Jude Watson');
+INSERT INTO Genre (g_id, g_name) VALUES ('AdvFi9780545138809', 'Adventure Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('Advfi9780545138809', '9780545138809');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780545060451','The Black Circle', 16, '08/11/2009','Patrick Carman');
+INSERT INTO Genre (g_id, g_name) VALUES ('AdvFi9780545060451', 'Adventure Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('AdvFi9780545060451', '9780545060451');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780545060462','In Too Deep', 26, '11/03/2009','Jude Watson');
+INSERT INTO Genre (g_id, g_name) VALUES ('AdvFi9780545060462', 'Adventure Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('AdvFi9780545060462', '9780545060462');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780545060479','The Vipers Nest', 27, '02/02/2010','Peter Lerangis');
+INSERT INTO Genre (g_id, g_name) VALUES ('AdvFi9780545060479', 'Adventure Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('AdvFi9780545060479', '9780545060479');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9780545060486','The Emperors Code', 26, '04/06/2010','Gordon Korman');
+INSERT INTO Genre (g_id, g_name) VALUES ('AdvFi9780545060486', 'Adventure Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('AdvFi9780545060486', '9780545060486');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9784040664736','Storm Warning', 22, '05/25/2010','Linda Sue Park');
+INSERT INTO Genre (g_id, g_name) VALUES ('AdvFi9784040664736', 'Adventure Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('AdvFi9784040664736', '9784040664736');
+
+INSERT INTO Books (isbn, b_name, ch_ct, release_date, author_name)
+   	VALUES ('9781616379315','Into The Gauntlet', 43, '08/31/2010','Margaret Peterson Haddix');
+INSERT INTO Genre (g_id, g_name) VALUES ('AdvFi9781616379315', 'Adventure Fiction');
+INSERT INTO BelongsTo (g_id, isbn) VALUES ('AdvFi9781616379315', '9781616379315');
